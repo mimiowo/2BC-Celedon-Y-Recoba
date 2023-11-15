@@ -3,22 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/mimiuwu/Desktop/2BC%20-%20Celedon%20y%20Recoba/src/logica/Historial.java</file>
-            <file>file:/Users/mimiuwu/Desktop/2BC%20-%20Celedon%20y%20Recoba/src/grafica/FrmIniciarSesion.java</file>
-            <file>file:/Users/mimiuwu/Desktop/2BC%20-%20Celedon%20y%20Recoba/src/persistencia/Archivo.java</file>
-            <file>file:/Users/mimiuwu/Desktop/2BC%20-%20Celedon%20y%20Recoba/src/logica/LstUsuarios.java</file>
-            <file>file:/Users/mimiuwu/Desktop/2BC%20-%20Celedon%20y%20Recoba/src/logica/Pass.java</file>
-            <file>file:/Users/mimiuwu/Desktop/2BC%20-%20Celedon%20y%20Recoba/src/grafica/FrmEliminarUsuario.java</file>
-            <file>file:/Users/mimiuwu/Desktop/2BC%20-%20Celedon%20y%20Recoba/src/logica/LstCambiosPass.java</file>
-            <file>file:/Users/mimiuwu/Desktop/2BC%20-%20Celedon%20y%20Recoba/src/logica/Mails.java</file>
-            <file>file:/Users/mimiuwu/Desktop/2BC%20-%20Celedon%20y%20Recoba/src/grafica/FrmRegistro.java</file>
-            <file>file:/Users/mimiuwu/Desktop/2BC%20-%20Celedon%20y%20Recoba/src/logica/LstInicioSesiones.java</file>
-            <file>file:/Users/mimiuwu/Desktop/2BC%20-%20Celedon%20y%20Recoba/src/logica/Usuario.java</file>
-            <file>file:/Users/mimiuwu/Desktop/2BC%20-%20Celedon%20y%20Recoba/src/logica/Instante.java</file>
-            <file>file:/Users/mimiuwu/Desktop/2BC%20-%20Celedon%20y%20Recoba/src/logica/Fecha.java</file>
-            <file>file:/Users/mimiuwu/Desktop/2BC%20-%20Celedon%20y%20Recoba/src/grafica/FrmCambiarContrasenia.java</file>
-            <file>file:/Users/mimiuwu/Desktop/2BC%20-%20Celedon%20y%20Recoba/src/grafica/FrmSesion.java</file>
-            <file>file:/Users/mimiuwu/Desktop/2BC%20-%20Celedon%20y%20Recoba/src/grafica/FrmPrincipal.java</file>
+            <file>file:/C:/Users/TomiG/Desktop/proyecto-programacion/2BC-Celedon-Y-Recoba/src/grafica/FrmCambiarContrasenia.java</file>
+            <file>file:/C:/Users/TomiG/Desktop/proyecto-programacion/2BC-Celedon-Y-Recoba/src/grafica/FrmSesion.java</file>
+            <file>file:/C:/Users/TomiG/Desktop/proyecto-programacion/2BC-Celedon-Y-Recoba/src/logica/LstCambiosPass.java</file>
+            <file>file:/C:/Users/TomiG/Desktop/proyecto-programacion/2BC-Celedon-Y-Recoba/src/logica/LstInicioSesiones.java</file>
+            <file>file:/C:/Users/TomiG/Desktop/proyecto-programacion/2BC-Celedon-Y-Recoba/src/grafica/FrmRegistro.java</file>
+            <file>file:/C:/Users/TomiG/Desktop/proyecto-programacion/2BC-Celedon-Y-Recoba/src/logica/Pass.java</file>
+            <file>file:/C:/Users/TomiG/Desktop/proyecto-programacion/2BC-Celedon-Y-Recoba/src/logica/Historial.java</file>
+            <file>file:/C:/Users/TomiG/Desktop/proyecto-programacion/2BC-Celedon-Y-Recoba/src/grafica/FrmIniciarSesion.java</file>
+            <file>file:/C:/Users/TomiG/Desktop/proyecto-programacion/2BC-Celedon-Y-Recoba/src/grafica/FrmPrincipal.java</file>
+            <file>file:/C:/Users/TomiG/Desktop/proyecto-programacion/2BC-Celedon-Y-Recoba/src/grafica/FrmEliminarUsuario.java</file>
         </group>
     </open-files>
 </project-private>
