@@ -64,12 +64,12 @@ public class FrmEliminarUsuario extends javax.swing.JFrame {
         lblIncorrecto.setForeground(new java.awt.Color(255, 0, 0));
         lblIncorrecto.setText("Usuario o contraseña incorrectos.");
         jPanel1.add(lblIncorrecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, -1, -1));
-        jPanel1.add(fieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 170, -1));
+        jPanel1.add(fieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 250, -1));
 
         jLabel3.setText("Contraseña");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, 20));
-        jPanel1.add(fieldContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 170, -1));
-        jPanel1.add(fieldContrasenia2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 170, -1));
+        jPanel1.add(fieldContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 250, -1));
+        jPanel1.add(fieldContrasenia2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 250, -1));
 
         jButton1.setText("Salir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

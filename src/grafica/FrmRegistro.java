@@ -66,8 +66,8 @@ public class FrmRegistro extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
 
         jLabel3.setText("E-mail");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
-        jPanel1.add(fieldMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 153, 200, 30));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        jPanel1.add(fieldMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 153, 270, 30));
 
         jButton2.setText("Salir");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -79,7 +79,7 @@ public class FrmRegistro extends javax.swing.JFrame {
 
         lblUsuarioEnUso.setForeground(new java.awt.Color(204, 0, 0));
         lblUsuarioEnUso.setText("Usuario en uso");
-        jPanel1.add(lblUsuarioEnUso, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, -1, -1));
+        jPanel1.add(lblUsuarioEnUso, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, -1, -1));
 
         jButton1.setText("CONFIRMAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

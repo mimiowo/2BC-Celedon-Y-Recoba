@@ -56,7 +56,7 @@ public class FrmIniciarSesion extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, -1, -1));
 
         jLabel3.setText("Contraseña");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, -1, -1));
 
         Confirmar.setText("Confirmar");
         Confirmar.addActionListener(new java.awt.event.ActionListener() {
@@ -79,14 +79,14 @@ public class FrmIniciarSesion extends javax.swing.JFrame {
                 fieldUsuarioActionPerformed(evt);
             }
         });
-        jPanel1.add(fieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 200, -1));
+        jPanel1.add(fieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 310, -1));
 
         lblIncorrecto.setForeground(new java.awt.Color(204, 0, 51));
         lblIncorrecto.setText("Contraseña o usuario incorrectos.");
         jPanel1.add(lblIncorrecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, -1, -1));
 
         jLabel4.setText("Usuario");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, -1, -1));
 
         fieldContrasenia.setFocusTraversalPolicyProvider(true);
         fieldContrasenia.addActionListener(new java.awt.event.ActionListener() {
@@ -94,7 +94,7 @@ public class FrmIniciarSesion extends javax.swing.JFrame {
                 fieldContraseniaActionPerformed(evt);
             }
         });
-        jPanel1.add(fieldContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 200, -1));
+        jPanel1.add(fieldContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 310, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fondito.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 370));

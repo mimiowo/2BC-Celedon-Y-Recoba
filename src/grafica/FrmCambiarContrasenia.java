@@ -85,30 +85,30 @@ public class FrmCambiarContrasenia extends javax.swing.JFrame {
 
         lblCoinciden.setForeground(new java.awt.Color(0, 204, 0));
         lblCoinciden.setText("Coinciden");
-        jPanel1.add(lblCoinciden, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, -1, -1));
+        jPanel1.add(lblCoinciden, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, -1, -1));
 
         lblSegura.setForeground(new java.awt.Color(0, 204, 51));
         lblSegura.setText("Segura");
-        jPanel1.add(lblSegura, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, -1, -1));
-        jPanel1.add(fieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 170, -1));
+        jPanel1.add(lblSegura, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, -1, -1));
+        jPanel1.add(fieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 250, -1));
 
         jLabel2.setText("Usuario");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
 
         lblDebil.setForeground(new java.awt.Color(204, 0, 0));
         lblDebil.setText("Débil");
-        jPanel1.add(lblDebil, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 40, -1));
+        jPanel1.add(lblDebil, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 40, -1));
 
         lblNoExiste.setText("Usuario no existe.");
         jPanel1.add(lblNoExiste, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, -1, -1));
 
         lblNoCoinciden.setForeground(new java.awt.Color(204, 0, 0));
         lblNoCoinciden.setText("No coinciden");
-        jPanel1.add(lblNoCoinciden, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, -1, -1));
+        jPanel1.add(lblNoCoinciden, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, -1, -1));
 
         lblMedio.setForeground(new java.awt.Color(255, 204, 0));
         lblMedio.setText("Medio");
-        jPanel1.add(lblMedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, -1, -1));
+        jPanel1.add(lblMedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, -1, -1));
 
         jButton3.setText("Olvidé mi contraseña");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -145,7 +145,7 @@ public class FrmCambiarContrasenia extends javax.swing.JFrame {
                 fieldContraseniaNueva2KeyReleased(evt);
             }
         });
-        jPanel1.add(fieldContraseniaNueva2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 170, -1));
+        jPanel1.add(fieldContraseniaNueva2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 250, -1));
 
         fieldContraseniaNueva1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -157,8 +157,8 @@ public class FrmCambiarContrasenia extends javax.swing.JFrame {
                 fieldContraseniaNueva1KeyReleased(evt);
             }
         });
-        jPanel1.add(fieldContraseniaNueva1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 170, -1));
-        jPanel1.add(fieldContraseniaAntigua, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 170, -1));
+        jPanel1.add(fieldContraseniaNueva1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 250, -1));
+        jPanel1.add(fieldContraseniaAntigua, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 250, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fondito.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 370));
@@ -197,45 +197,49 @@ public class FrmCambiarContrasenia extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        coleccion.devolver(fieldUsuario.getText()).getPass().cambiarContrasenia(String.valueOf(fieldContraseniaNueva1.getPassword()));
-        coleccion.devolver(fieldUsuario.getText()).devolverCambiosPass().actualizarLista();
-        Archivo.getInstancia().registrarUsuario(coleccion);
+        if (String.valueOf(fieldContraseniaNueva1.getPassword()).equals(String.valueOf(fieldContraseniaNueva2.getPassword()))) {
+            coleccion.devolver(fieldUsuario.getText()).getPass().cambiarContrasenia(String.valueOf(fieldContraseniaNueva1.getPassword()));
+            coleccion.devolver(fieldUsuario.getText()).devolverCambiosPass().actualizarLista();
+            Archivo.getInstancia().registrarUsuario(coleccion);
 
-        FrmPrincipal principal = new FrmPrincipal(this.getLocation(), coleccion);
-        principal.setVisible(true);
-        this.dispose();
+            FrmPrincipal principal = new FrmPrincipal(this.getLocation(), coleccion);
+            principal.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void fieldContraseniaNueva1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldContraseniaNueva1FocusLost
-        
+
     }//GEN-LAST:event_fieldContraseniaNueva1FocusLost
 
     private boolean verificarContraseniaMayusculas(String contrasenia) {
         for (int i = 0; i < contrasenia.length(); i++) {
-            if (Character.isUpperCase(contrasenia.charAt(i)))
+            if (Character.isUpperCase(contrasenia.charAt(i))) {
                 return true;
+            }
         }
         return false;
     }
-    
+
     private boolean verificarContraseniaNumeros(String contrasenia) {
         for (int i = 0; i < contrasenia.length(); i++) {
-            if (Character.isDigit(contrasenia.charAt(i)))
+            if (Character.isDigit(contrasenia.charAt(i))) {
                 return true;
+            }
         }
         return false;
     }
-    
+
     private void fieldContraseniaNueva1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldContraseniaNueva1KeyReleased
         if (verificarContraseniaMayusculas(String.valueOf(fieldContraseniaNueva1.getPassword())) && verificarContraseniaNumeros(String.valueOf(fieldContraseniaNueva1.getPassword()))) {
             lblSegura.setVisible(true);
             lblDebil.setVisible(false);
             lblMedio.setVisible(false);
-        } else if(verificarContraseniaMayusculas(String.valueOf(fieldContraseniaNueva1.getPassword())) && !verificarContraseniaNumeros(String.valueOf(fieldContraseniaNueva1.getPassword()))) {
+        } else if (verificarContraseniaMayusculas(String.valueOf(fieldContraseniaNueva1.getPassword())) && !verificarContraseniaNumeros(String.valueOf(fieldContraseniaNueva1.getPassword()))) {
             lblSegura.setVisible(false);
             lblDebil.setVisible(false);
             lblMedio.setVisible(true);
-        } else if(!verificarContraseniaMayusculas(String.valueOf(fieldContraseniaNueva1.getPassword())) && verificarContraseniaNumeros(String.valueOf(fieldContraseniaNueva1.getPassword()))) {
+        } else if (!verificarContraseniaMayusculas(String.valueOf(fieldContraseniaNueva1.getPassword())) && verificarContraseniaNumeros(String.valueOf(fieldContraseniaNueva1.getPassword()))) {
             lblSegura.setVisible(false);
             lblDebil.setVisible(false);
             lblMedio.setVisible(true);
@@ -247,7 +251,7 @@ public class FrmCambiarContrasenia extends javax.swing.JFrame {
     }//GEN-LAST:event_fieldContraseniaNueva1KeyReleased
 
     private void fieldContraseniaNueva2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldContraseniaNueva2ActionPerformed
-        
+
     }//GEN-LAST:event_fieldContraseniaNueva2ActionPerformed
 
     private void fieldContraseniaNueva2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldContraseniaNueva2KeyReleased

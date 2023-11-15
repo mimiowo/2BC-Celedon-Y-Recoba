@@ -10,7 +10,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         initComponents();
         this.coleccion = coleccion;
         this.setLocation(p);
-        this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
