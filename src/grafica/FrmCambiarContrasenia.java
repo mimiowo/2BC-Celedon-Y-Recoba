@@ -20,6 +20,7 @@ import persistencia.Archivo;
 public class FrmCambiarContrasenia extends javax.swing.JFrame {
 
     private LstUsuarios coleccion;
+    private boolean puedeCambiar = false;
 
     /**
      * Creates new form FrmEliminarUsuario
@@ -35,6 +36,7 @@ public class FrmCambiarContrasenia extends javax.swing.JFrame {
         lblSegura.setVisible(false);
         lblOlvide.setVisible(false);
         lblNoExiste.setVisible(false);
+        lblContraseniaIncorrecta.setVisible(false);
     }
 
     /**
@@ -53,6 +55,7 @@ public class FrmCambiarContrasenia extends javax.swing.JFrame {
         lblCoinciden = new javax.swing.JLabel();
         lblSegura = new javax.swing.JLabel();
         fieldUsuario = new javax.swing.JTextField();
+        lblContraseniaIncorrecta = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblDebil = new javax.swing.JLabel();
         lblNoExiste = new javax.swing.JLabel();
@@ -92,6 +95,10 @@ public class FrmCambiarContrasenia extends javax.swing.JFrame {
         jPanel1.add(lblSegura, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, -1, -1));
         jPanel1.add(fieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 250, -1));
 
+        lblContraseniaIncorrecta.setForeground(new java.awt.Color(204, 0, 51));
+        lblContraseniaIncorrecta.setText("Contraseña incorrecta.");
+        jPanel1.add(lblContraseniaIncorrecta, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, -1, -1));
+
         jLabel2.setText("Usuario");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
 
@@ -125,6 +132,11 @@ public class FrmCambiarContrasenia extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
 
         jButton2.setText("Salir");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, -1));
 
         jButton1.setText("Confirmar");
@@ -197,7 +209,7 @@ public class FrmCambiarContrasenia extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (String.valueOf(fieldContraseniaNueva1.getPassword()).equals(String.valueOf(fieldContraseniaNueva2.getPassword()))) {
+        if (String.valueOf(fieldContraseniaNueva1.getPassword()).equals(String.valueOf(fieldContraseniaNueva2.getPassword())) && puedeCambiar && coleccion.devolver(fieldUsuario.getText()).getPass().getContrasenia().equals(String.valueOf(fieldContraseniaAntigua.getPassword()))) {
             coleccion.devolver(fieldUsuario.getText()).getPass().cambiarContrasenia(String.valueOf(fieldContraseniaNueva1.getPassword()));
             coleccion.devolver(fieldUsuario.getText()).devolverCambiosPass().actualizarLista();
             Archivo.getInstancia().registrarUsuario(coleccion);
@@ -205,6 +217,8 @@ public class FrmCambiarContrasenia extends javax.swing.JFrame {
             FrmPrincipal principal = new FrmPrincipal(this.getLocation(), coleccion);
             principal.setVisible(true);
             this.dispose();
+        } else {
+            lblContraseniaIncorrecta.setVisible(true);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -235,18 +249,22 @@ public class FrmCambiarContrasenia extends javax.swing.JFrame {
             lblSegura.setVisible(true);
             lblDebil.setVisible(false);
             lblMedio.setVisible(false);
+            puedeCambiar = true;
         } else if (verificarContraseniaMayusculas(String.valueOf(fieldContraseniaNueva1.getPassword())) && !verificarContraseniaNumeros(String.valueOf(fieldContraseniaNueva1.getPassword()))) {
             lblSegura.setVisible(false);
             lblDebil.setVisible(false);
             lblMedio.setVisible(true);
+            puedeCambiar = true;
         } else if (!verificarContraseniaMayusculas(String.valueOf(fieldContraseniaNueva1.getPassword())) && verificarContraseniaNumeros(String.valueOf(fieldContraseniaNueva1.getPassword()))) {
             lblSegura.setVisible(false);
             lblDebil.setVisible(false);
             lblMedio.setVisible(true);
+            puedeCambiar = true;
         } else {
             lblSegura.setVisible(false);
             lblDebil.setVisible(true);
             lblMedio.setVisible(false);
+            puedeCambiar = false;
         }
     }//GEN-LAST:event_fieldContraseniaNueva1KeyReleased
 
@@ -263,6 +281,12 @@ public class FrmCambiarContrasenia extends javax.swing.JFrame {
             lblNoCoinciden.setVisible(true);
         }
     }//GEN-LAST:event_fieldContraseniaNueva2KeyReleased
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        FrmSesion sesion = new FrmSesion(this.getLocation(), coleccion);
+        sesion.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -318,6 +342,7 @@ public class FrmCambiarContrasenia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCoinciden;
+    private javax.swing.JLabel lblContraseniaIncorrecta;
     private javax.swing.JLabel lblDebil;
     private javax.swing.JLabel lblMedio;
     private javax.swing.JLabel lblNoCoinciden;

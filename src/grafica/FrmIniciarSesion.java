@@ -7,6 +7,7 @@ package grafica;
 import java.awt.Point;
 import java.util.Arrays;
 import logica.LstUsuarios;
+import persistencia.Archivo;
 
 /**
  *
@@ -24,6 +25,7 @@ public class FrmIniciarSesion extends javax.swing.JFrame {
         initComponents();
         this.setLocation(p);
         lblIncorrecto.setVisible(false);
+        lblBloqueado.setVisible(false);
     }
 
     /**
@@ -38,6 +40,7 @@ public class FrmIniciarSesion extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        lblBloqueado = new javax.swing.JLabel();
         Confirmar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         fieldUsuario = new javax.swing.JTextField();
@@ -57,6 +60,10 @@ public class FrmIniciarSesion extends javax.swing.JFrame {
 
         jLabel3.setText("Contraseña");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, -1, -1));
+
+        lblBloqueado.setForeground(new java.awt.Color(204, 0, 51));
+        lblBloqueado.setText("Este usuario está bloqueado.");
+        jPanel1.add(lblBloqueado, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, -1, -1));
 
         Confirmar.setText("Confirmar");
         Confirmar.addActionListener(new java.awt.event.ActionListener() {
@@ -128,18 +135,32 @@ public class FrmIniciarSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarActionPerformed
-        if (verificarUsuario(fieldUsuario.getText(), String.valueOf(fieldContrasenia.getPassword()))) {
+        if (verificarUsuario(fieldUsuario.getText(), String.valueOf(fieldContrasenia.getPassword())) && coleccion.devolver(fieldUsuario.getText()).devolverInicioSesiones().isHabilitado()) {
             coleccion.devolver(fieldUsuario.getText()).devolverInicioSesiones().actualizarLista();
+            coleccion.devolver(fieldUsuario.getText()).devolverInicioSesiones().resetIntentos();
+            Archivo.getInstancia().registrarUsuario(coleccion);
+                    
             FrmSesion sesion = new FrmSesion(this.getLocation(), coleccion);
             sesion.setVisible(true);
             this.dispose();
         } else {
-            lblIncorrecto.setVisible(true);
+            coleccion.devolver(fieldUsuario.getText()).devolverInicioSesiones().sumarIntento();
+            Archivo.getInstancia().registrarUsuario(coleccion);
+            if (coleccion.devolver(fieldUsuario.getText()).devolverInicioSesiones().isHabilitado()) {
+                lblIncorrecto.setVisible(true);
+            } else {
+                lblBloqueado.setVisible(true);
+                lblIncorrecto.setVisible(false);
+            }
         }
     }//GEN-LAST:event_ConfirmarActionPerformed
 
     private boolean verificarUsuario(String mail, String contrasenia) {
-        return coleccion.devolver(mail).getPass().getContrasenia().equals(contrasenia);
+        try {
+            return coleccion.devolver(mail).getPass().getContrasenia().equals(contrasenia);
+        } catch (Exception e) {
+            return false;
+        }
     }
     
     /**
@@ -190,6 +211,7 @@ public class FrmIniciarSesion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblBloqueado;
     private javax.swing.JLabel lblIncorrecto;
     // End of variables declaration//GEN-END:variables
 }

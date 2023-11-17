@@ -30,6 +30,10 @@ public class LstInicioSesiones extends Historial {
             cambiarHabilitacion();
     }
     
+    public void resetIntentos() {
+        this.intentos = 0;
+    }
+    
     private void cambiarHabilitacion () {
         this.habilitado = !habilitado;
     }
